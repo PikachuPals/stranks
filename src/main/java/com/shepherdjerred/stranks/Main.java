@@ -96,7 +96,10 @@ public class Main extends RiotBase {
 
     private void setupEconomy() {
         economy = new VaultEconomy(server);
-        economy.setupEconomy();
+        if (!economy.setupEconomy()) {
+            getLogger().info("Error enabling economy support. Disabling stRanks.");
+            getPluginLoader().disablePlugin(this);
+        }
     }
 
     private void setupPermissions() {
