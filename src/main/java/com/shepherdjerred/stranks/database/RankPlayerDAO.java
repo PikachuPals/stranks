@@ -60,7 +60,7 @@ public class RankPlayerDAO {
         Mapper<RankPlayer> rankPlayerMapper = rs -> new RankPlayer(
                 uuid,
                 rs.getInt("rank"),
-                rs.getInt("lastRankUp")
+                rs.getLong("lastRankUp")
         );
 
         Query query = fluentJdbc.query();
