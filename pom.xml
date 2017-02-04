@@ -98,6 +98,12 @@
                                     <exclude>org.bukkit:craftbukkit</exclude>
                                 </excludes>
                             </artifactSet>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.shepherdjerred.riotbase</pattern>
+                                    <shadedPattern>com.shepherdjerred.stranks.riotbase</shadedPattern>
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>

@@ -66,7 +66,7 @@ public class Main extends RiotBase {
         rankPlayers = new RankPlayers();
         ranks = new Ranks();
         server = new SpigotServer();
-        rankPlayerController = new RankPlayerController();
+        rankPlayerController = new RankPlayerController(ranks, rankPlayers, economy, rankPlayerDAO, permission);
     }
 
     private void setupConfigs() {

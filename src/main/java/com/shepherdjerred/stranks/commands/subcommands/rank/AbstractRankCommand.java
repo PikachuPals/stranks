@@ -9,7 +9,6 @@ import com.shepherdjerred.stranks.objects.trackers.Ranks;
 
 public abstract class AbstractRankCommand extends AbstractCommand {
 
-
     protected final Ranks ranks;
     protected final RankPlayerController rankPlayerController;
     protected final RankPlayers rankPlayers;

@@ -20,6 +20,14 @@ public class RankPlayerController {
     private RankPlayerDAO rankPlayerDAO;
     private Permission permission;
 
+    public RankPlayerController(Ranks ranks, RankPlayers rankPlayers, Economy economy, RankPlayerDAO rankPlayerDAO, Permission permission) {
+        this.ranks = ranks;
+        this.rankPlayers = rankPlayers;
+        this.economy = economy;
+        this.rankPlayerDAO = rankPlayerDAO;
+        this.permission = permission;
+    }
+
     public void rankUpPlayer(Player player) throws RankException {
 
         RankPlayer rankPlayer = rankPlayers.getPlayer(player.getUniqueId());
