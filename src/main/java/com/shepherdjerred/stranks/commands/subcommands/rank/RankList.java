@@ -20,7 +20,7 @@ public class RankList extends AbstractRankCommand {
     @Override
     public void execute(SpigotCommandSource sender, String[] strings) {
         sender.sendMessage(parser.colorString(false, "towns.list.header"));
-        ranks.getRanksAsList().forEach(rank -> sender.sendMessage(parser.colorString(false, "ranks.list.line", rank.getId(), rank.getDescription())));
+        ranks.getRanksAsList().forEach(rank -> sender.sendMessage(rank.getId() + ": " + rank.getDescription()));
     }
 
 }
