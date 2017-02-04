@@ -9,14 +9,23 @@ soft-depend: [Vault]
 main: com.shepherdjerred.stranks.Main
 
 commands:
-    sttowns:
-        description: Description
+    stranks:
+        description: Admin command for stRanks
         aliases: [str]
     rank:
-        description: Description
+        description: Main command for stRanks
         aliases: [r]
 
 permissions:
     stRanks.rank:
         description: Use /rank
+        default: true
+    stRanks.list:
+        description: Use /rank list
+        default: true
+    stRanks.info:
+        description: Use /rank info
+        default: true
+    stRanks.buy:
+        description: Use /rank buy
         default: true
