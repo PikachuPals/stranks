@@ -1,7 +1,6 @@
 package com.shepherdjerred.stranks;
 
 import com.shepherdjerred.riotbase.RiotBase;
-import com.shepherdjerred.riotbase.Server;
 import com.shepherdjerred.riotbase.SpigotServer;
 import com.shepherdjerred.stranks.commands.RankExecutor;
 import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
@@ -10,6 +9,7 @@ import com.shepherdjerred.stranks.config.RankConfigImpl;
 import com.shepherdjerred.stranks.config.RankLoader;
 import com.shepherdjerred.stranks.controllers.RankPlayerController;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
+import com.shepherdjerred.stranks.economy.Vault;
 import com.shepherdjerred.stranks.listeners.RankPlayerListener;
 import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
@@ -29,7 +29,7 @@ public class Main extends RiotBase {
 
     private Parser parser;
     private RankConfig rankConfig;
-    private Server server;
+    private SpigotServer server;
     private RankPlayers rankPlayers;
     private Ranks ranks;
     private RankPlayerDAO rankPlayerDAO;
@@ -39,11 +39,14 @@ public class Main extends RiotBase {
     private HikariDataSource hikariDataSource;
     private FluentJdbc fluentJdbc;
 
+    private Vault economy;
+
     @Override
     public void onEnable() {
         createObjects();
         setupConfigs();
         setupDatabase();
+        setupEconomy();
 
         // TODO Load from plugin dir
         parser = new Parser(ResourceBundle.getBundle("messages"));
@@ -84,6 +87,11 @@ public class Main extends RiotBase {
         flyway.setLocations("filesystem:" + getDataFolder().getAbsolutePath() + "/db/migration/");
         flyway.setDataSource(hikariDataSource);
         flyway.migrate();
+    }
+
+    private void setupEconomy() {
+        economy = new Vault(server);
+        economy.setupEconomy();
     }
 
     private void registerCommands() {

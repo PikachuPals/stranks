@@ -4,10 +4,10 @@ public class Rank {
 
     private final int id;
     private final String permission;
-    private final long cost;
+    private final double cost;
     private final String description;
 
-    public Rank(int id, String permission, long cost, String description) {
+    public Rank(int id, String permission, double cost, String description) {
         this.id = id;
         this.permission = permission;
         this.cost = cost;
@@ -26,7 +26,7 @@ public class Rank {
         return permission;
     }
 
-    public long getCost() {
+    public double getCost() {
         return cost;
     }
 }

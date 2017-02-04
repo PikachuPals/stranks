@@ -4,7 +4,7 @@ description: ${project.description}
 author: Jerred Shepherd (RiotShielder)
 website: http://shepherdjerred.com/
 
-soft-depend: [Vault]
+depend: [Vault]
 
 main: com.shepherdjerred.stranks.Main
 
