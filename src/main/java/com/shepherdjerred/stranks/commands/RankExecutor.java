@@ -2,12 +2,15 @@ package com.shepherdjerred.stranks.commands;
 
 import com.shepherdjerred.riotbase.commands.AbstractCommand;
 import com.shepherdjerred.riotbase.commands.CommandInfo;
-import com.shepherdjerred.riotbase.commands.CommandRegister;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
+import com.shepherdjerred.stranks.commands.subcommands.rank.RankBuy;
+import com.shepherdjerred.stranks.commands.subcommands.rank.RankInfo;
+import com.shepherdjerred.stranks.commands.subcommands.rank.RankList;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
 
 public class RankExecutor extends AbstractCommand {
 
-    public RankExecutor(CommandRegister register, CommandInfo commandInfo) {
+    public RankExecutor(RankCommandRegister register) {
         super(register, new CommandInfo(
                 "rank",
                 "stRanks.rank",
@@ -16,6 +19,11 @@ public class RankExecutor extends AbstractCommand {
                 1,
                 false
         ));
+        addChildren(
+                new RankInfo(register),
+                new RankList(register),
+                new RankBuy(register)
+        );
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.shepherdjerred.stranks;
 import com.shepherdjerred.riotbase.RiotBase;
 import com.shepherdjerred.riotbase.Server;
 import com.shepherdjerred.riotbase.SpigotServer;
+import com.shepherdjerred.stranks.commands.RankExecutor;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
 import com.shepherdjerred.stranks.config.RankConfig;
 import com.shepherdjerred.stranks.config.RankConfigImpl;
 import com.shepherdjerred.stranks.config.RankLoader;
@@ -85,7 +87,9 @@ public class Main extends RiotBase {
     }
 
     private void registerCommands() {
-
+        RankCommandRegister rcr = new RankCommandRegister(parser, ranks, rankPlayerController, rankPlayers);
+        rcr.addCommand(new RankExecutor(rcr));
+        rcr.register(this);
     }
 
     private void registerListeners() {
