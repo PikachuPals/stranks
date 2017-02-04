@@ -32,7 +32,7 @@ public class RankPlayerController {
 
         RankPlayer rankPlayer = rankPlayers.getPlayer(player.getUniqueId());
         Rank currentRank = ranks.getRank(rankPlayer.getRank());
-        Rank nextRank = ranks.getRank(rankPlayer.getRank() + 1);
+        Rank nextRank = ranks.getRank(currentRank.getId() + 1);
 
         if (nextRank == null) {
             throw new RankException("No rank exists after the players current rank");

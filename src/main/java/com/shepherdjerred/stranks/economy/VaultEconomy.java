@@ -22,11 +22,13 @@ public class VaultEconomy implements Economy {
     }
 
     public boolean setupEconomy() {
-        if (spigotServer.getServer().getPluginManager().getPlugin("VaultEconomy") == null) {
+        if (spigotServer.getServer().getPluginManager().getPlugin("Vault") == null) {
+            System.out.println("2");
             return false;
         }
         RegisteredServiceProvider<net.milkbowl.vault.economy.Economy> rsp = spigotServer.getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);
         if (rsp == null) {
+            System.out.println("3");
             return false;
         }
         vaultEconomy = rsp.getProvider();
