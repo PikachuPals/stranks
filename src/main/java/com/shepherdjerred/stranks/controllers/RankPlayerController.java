@@ -42,7 +42,7 @@ public class RankPlayerController {
             throw new RankException("Player doesn't have enough money");
         }
 
-        if (rankPlayer.getLastRankUp() - System.currentTimeMillis() < MILLISECONDS_IN_DAY) {
+        if (rankPlayer.getLastRankUp() != 0 || rankPlayer.getLastRankUp() - System.currentTimeMillis() > MILLISECONDS_IN_DAY) {
             throw new RankException("Player can't rank up more than once per day");
         }
 
