@@ -5,11 +5,13 @@ import com.shepherdjerred.riotbase.Server;
 import com.shepherdjerred.riotbase.SpigotServer;
 import com.shepherdjerred.stranks.config.RankConfig;
 import com.shepherdjerred.stranks.config.RankConfigImpl;
+import com.shepherdjerred.stranks.config.RankLoader;
 import com.shepherdjerred.stranks.controllers.RankPlayerController;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
 import com.shepherdjerred.stranks.listeners.RankPlayerListener;
 import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
+import com.shepherdjerred.stranks.objects.trackers.Ranks;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
@@ -18,6 +20,7 @@ import org.codejargon.fluentjdbc.api.FluentJdbc;
 import org.codejargon.fluentjdbc.api.FluentJdbcBuilder;
 import org.flywaydb.core.Flyway;
 
+import java.io.File;
 import java.util.ResourceBundle;
 
 public class Main extends RiotBase {
@@ -26,6 +29,7 @@ public class Main extends RiotBase {
     private RankConfig rankConfig;
     private Server server;
     private RankPlayers rankPlayers;
+    private Ranks ranks;
     private RankPlayerDAO rankPlayerDAO;
 
     private RankPlayerController rankPlayerController;
@@ -50,6 +54,7 @@ public class Main extends RiotBase {
 
     private void createObjects() {
         rankPlayers = new RankPlayers();
+        ranks = new Ranks();
         server = new SpigotServer();
         rankPlayerDAO = new RankPlayerDAO(fluentJdbc, rankPlayers);
     }
@@ -57,8 +62,11 @@ public class Main extends RiotBase {
     private void setupConfigs() {
         copyFile(getResource("config.yml"), getDataFolder().getAbsolutePath() + "/config.yml");
         copyFile(getResource("messages.properties"), getDataFolder().getAbsolutePath() + "/messages.properties");
+        copyFile(getResource("ranks.json"), getDataFolder().getAbsolutePath() + "/ranks.json");
+
 
         rankConfig = new RankConfigImpl(getConfig());
+        new RankLoader(ranks).loadRanks(new File(getDataFolder().getAbsolutePath() + "/rank.json"));
     }
 
     private void setupDatabase() {
@@ -81,7 +89,7 @@ public class Main extends RiotBase {
     }
 
     private void registerListeners() {
-        getServer().getPluginManager().registerEvents(new RankPlayerListener(server, rankPlayers), this);
+        getServer().getPluginManager().registerEvents(new RankPlayerListener(server, rankPlayers, rankPlayerDAO), this);
     }
 
     /**
