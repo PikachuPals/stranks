@@ -1,0 +1,19 @@
+{
+  "ranks": {
+    "1": {
+      "permission": "rank.1"
+    },
+    "2": {
+      "permission": "rank.2"
+    },
+    "3": {
+      "permission": "rank.3"
+    },
+    "4": {
+      "permission": "rank.4"
+    },
+    "5": {
+      "permission": "rank.5"
+    }
+  }
+}

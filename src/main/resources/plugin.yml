@@ -1,0 +1,22 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: Jerred Shepherd (RiotShielder)
+website: http://shepherdjerred.com/
+
+soft-depend: [Vault]
+
+main: com.shepherdjerred.stranks.Main
+
+commands:
+    sttowns:
+        description: Description
+        aliases: [str]
+    rank:
+        description: Description
+        aliases: [r]
+
+permissions:
+    stRanks.rank:
+        description: Use /rank
+        default: true
