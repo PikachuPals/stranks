@@ -51,6 +51,8 @@ public class Main extends RiotBase {
         setupEconomy();
         setupPermissions();
 
+        rankPlayerDAO = new RankPlayerDAO(fluentJdbc, rankPlayers);
+
         // TODO Load from plugin dir
         parser = new Parser(ResourceBundle.getBundle("messages"));
 
@@ -64,7 +66,6 @@ public class Main extends RiotBase {
         rankPlayers = new RankPlayers();
         ranks = new Ranks();
         server = new SpigotServer();
-        rankPlayerDAO = new RankPlayerDAO(fluentJdbc, rankPlayers);
         rankPlayerController = new RankPlayerController();
     }
 
