@@ -4,12 +4,12 @@ import com.shepherdjerred.riotbase.SpigotServer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public class Vault implements Economy {
+public class VaultEconomy implements Economy {
 
     private final SpigotServer spigotServer;
     private net.milkbowl.vault.economy.Economy vaultEconomy;
 
-    public Vault(SpigotServer spigotServer) {
+    public VaultEconomy(SpigotServer spigotServer) {
         this.spigotServer = spigotServer;
     }
 
@@ -22,7 +22,7 @@ public class Vault implements Economy {
     }
 
     public boolean setupEconomy() {
-        if (spigotServer.getServer().getPluginManager().getPlugin("Vault") == null) {
+        if (spigotServer.getServer().getPluginManager().getPlugin("VaultEconomy") == null) {
             return false;
         }
         RegisteredServiceProvider<net.milkbowl.vault.economy.Economy> rsp = spigotServer.getServer().getServicesManager().getRegistration(net.milkbowl.vault.economy.Economy.class);

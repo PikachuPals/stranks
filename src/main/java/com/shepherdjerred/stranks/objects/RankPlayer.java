@@ -33,4 +33,13 @@ public class RankPlayer {
     public void setLastRankUp(long lastRankUp) {
         this.lastRankUp = lastRankUp;
     }
+
+    @Override
+    public String toString() {
+        return "RankPlayer{" +
+                "uuid=" + uuid +
+                ", rank=" + rank +
+                ", lastRankUp=" + lastRankUp +
+                '}';
+    }
 }

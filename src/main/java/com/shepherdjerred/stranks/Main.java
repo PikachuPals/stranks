@@ -9,11 +9,12 @@ import com.shepherdjerred.stranks.config.RankConfigImpl;
 import com.shepherdjerred.stranks.config.RankLoader;
 import com.shepherdjerred.stranks.controllers.RankPlayerController;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
-import com.shepherdjerred.stranks.economy.Vault;
+import com.shepherdjerred.stranks.economy.VaultEconomy;
 import com.shepherdjerred.stranks.listeners.RankPlayerListener;
 import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
+import com.shepherdjerred.stranks.permissions.VaultPermission;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
@@ -39,7 +40,8 @@ public class Main extends RiotBase {
     private HikariDataSource hikariDataSource;
     private FluentJdbc fluentJdbc;
 
-    private Vault economy;
+    private VaultEconomy economy;
+    private VaultPermission permission;
 
     @Override
     public void onEnable() {
@@ -47,6 +49,7 @@ public class Main extends RiotBase {
         setupConfigs();
         setupDatabase();
         setupEconomy();
+        setupPermissions();
 
         // TODO Load from plugin dir
         parser = new Parser(ResourceBundle.getBundle("messages"));
@@ -62,6 +65,7 @@ public class Main extends RiotBase {
         ranks = new Ranks();
         server = new SpigotServer();
         rankPlayerDAO = new RankPlayerDAO(fluentJdbc, rankPlayers);
+        rankPlayerController = new RankPlayerController();
     }
 
     private void setupConfigs() {
@@ -71,7 +75,7 @@ public class Main extends RiotBase {
 
 
         rankConfig = new RankConfigImpl(getConfig());
-        new RankLoader(ranks).loadRanks(new File(getDataFolder().getAbsolutePath() + "/rank.json"));
+        new RankLoader(ranks).loadRanks(new File(getDataFolder().getAbsolutePath() + "/ranks.json"));
     }
 
     private void setupDatabase() {
@@ -90,8 +94,13 @@ public class Main extends RiotBase {
     }
 
     private void setupEconomy() {
-        economy = new Vault(server);
+        economy = new VaultEconomy(server);
         economy.setupEconomy();
+    }
+
+    private void setupPermissions() {
+        permission = new VaultPermission(server);
+        permission.setupPermissions();
     }
 
     private void registerCommands() {

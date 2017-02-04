@@ -7,6 +7,7 @@ import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
+import com.shepherdjerred.stranks.permissions.Permission;
 import org.bukkit.entity.Player;
 
 public class RankPlayerController {
@@ -17,6 +18,7 @@ public class RankPlayerController {
     private RankPlayers rankPlayers;
     private Economy economy;
     private RankPlayerDAO rankPlayerDAO;
+    private Permission permission;
 
     public void rankUpPlayer(Player player) throws RankException {
 
@@ -40,6 +42,8 @@ public class RankPlayerController {
 
         rankPlayer.setRank(nextRank.getId());
         rankPlayer.setLastRankUp(System.currentTimeMillis());
+
+        permission.givePermission(player, nextRank.getPermission());
 
         rankPlayerDAO.setRank(rankPlayer);
         rankPlayerDAO.setLastRankUp(rankPlayer);

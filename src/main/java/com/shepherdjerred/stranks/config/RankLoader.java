@@ -3,6 +3,7 @@ package com.shepherdjerred.stranks.config;
 import com.eclipsesource.json.Json;
 import com.eclipsesource.json.JsonObject;
 import com.eclipsesource.json.JsonValue;
+import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
 import org.apache.commons.io.FileUtils;
 
@@ -32,7 +33,14 @@ public class RankLoader {
 
             for (JsonObject.Member rank : ranks) {
                 String name = rank.getName();
-                System.out.println(name);
+                String description = rank.getValue().asObject().getString("description", "Default description");
+                String permission = rank.getValue().asObject().getString("permission", "stRanks.rank." + name);
+                Double cost = rank.getValue().asObject().getDouble("cost", 1000000);
+
+                Rank newRank = new Rank(Integer.valueOf(name), permission, cost, description);
+                this.ranks.addRank(newRank);
+                System.out.println(newRank.toString());
+
             }
         }
 

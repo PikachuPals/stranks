@@ -10,6 +10,10 @@ public class Ranks {
 
     private final HashMap<Integer, Rank> ranks = new HashMap<>();
 
+    public void addRank(Rank rank) {
+        ranks.put(rank.getId(), rank);
+    }
+
     public Rank getRank(int rankId) {
         return ranks.get(rankId);
     }

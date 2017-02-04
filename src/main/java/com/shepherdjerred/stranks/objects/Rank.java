@@ -29,4 +29,14 @@ public class Rank {
     public double getCost() {
         return cost;
     }
+
+    @Override
+    public String toString() {
+        return "Rank{" +
+                "id=" + id +
+                ", permission='" + permission + '\'' +
+                ", cost=" + cost +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

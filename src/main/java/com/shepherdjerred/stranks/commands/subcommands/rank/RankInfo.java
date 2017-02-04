@@ -41,7 +41,6 @@ public class RankInfo extends AbstractRankCommand {
         sender.sendMessage(String.valueOf(rank.getId()));
         sender.sendMessage(rank.getDescription());
         sender.sendMessage(String.valueOf(rank.getCost()));
-
     }
 
 }
