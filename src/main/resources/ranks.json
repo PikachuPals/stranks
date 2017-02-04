@@ -1,29 +1,24 @@
 {
   "ranks": {
     "1": {
-      "permission": "rank.1",
-      "cost": 1000,
-      "description": ""
+      "permission": "stRanks.rank.1",
+      "cost": 0,
+      "description": "The initial rank"
     },
     "2": {
-      "permission": "rank.2",
+      "permission": "stRanks.rank.2",
       "cost": 1000,
-      "description": ""
+      "description": "Use ammeters and light stones. Create hidden switch, light switches, and cooking pots. Several ICs"
     },
     "3": {
-      "permission": "rank.3",
+      "permission": "stRanks.rank.3",
       "cost": 1000,
-      "description": ""
+      "description": "Store and place horses, several spells"
     },
     "4": {
-      "permission": "rank.4",
-      "cost": 1000,
-      "description": ""
-    },
-    "5": {
-      "permission": "rank.5",
-      "cost": 1000,
-      "description": ""
+      "permission": "stRanks.rank.4",
+      "cost": 2000,
+      "description": "Create a town, buy and sell signs. Use the map changer and painting switcher"
     }
   }
 }
