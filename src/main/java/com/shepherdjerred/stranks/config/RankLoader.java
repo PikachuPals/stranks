@@ -39,8 +39,6 @@ public class RankLoader {
 
                 Rank newRank = new Rank(Integer.valueOf(name), permission, cost, description);
                 this.ranks.addRank(newRank);
-                System.out.println(newRank.toString());
-
             }
         }
 

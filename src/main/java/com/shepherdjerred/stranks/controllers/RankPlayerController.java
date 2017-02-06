@@ -45,9 +45,6 @@ public class RankPlayerController {
         }
 
         if (rankPlayer.getTimeInMillisSinceLastRankUp() + MILLISECONDS_IN_DAY > System.currentTimeMillis()) {
-            System.out.println(rankPlayer.getTimeInMillisSinceLastRankUp());
-            System.out.println(MILLISECONDS_IN_DAY);
-            System.out.println(System.currentTimeMillis());
             throw new RankException("Player can't rank up more than once per day");
         }
 
