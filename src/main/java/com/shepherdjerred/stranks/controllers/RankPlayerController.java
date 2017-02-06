@@ -10,9 +10,11 @@ import com.shepherdjerred.stranks.objects.trackers.Ranks;
 import com.shepherdjerred.stranks.permissions.Permission;
 import org.bukkit.entity.Player;
 
+import java.util.concurrent.TimeUnit;
+
 public class RankPlayerController {
 
-    private final long MILLISECONDS_IN_DAY = 3600000000000L;
+    private final long MILLISECONDS_IN_DAY = TimeUnit.DAYS.toMillis(1);
 
     private Ranks ranks;
     private RankPlayers rankPlayers;
@@ -42,7 +44,7 @@ public class RankPlayerController {
             throw new RankException("Player doesn't have enough money");
         }
 
-        if (rankPlayer.getLastRankUp() != 0 || rankPlayer.getLastRankUp() - System.currentTimeMillis() > MILLISECONDS_IN_DAY) {
+        if (rankPlayer.getLastRankUp() + MILLISECONDS_IN_DAY < System.currentTimeMillis()) {
             throw new RankException("Player can't rank up more than once per day");
         }
 
