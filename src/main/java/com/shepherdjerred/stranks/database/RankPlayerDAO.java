@@ -27,7 +27,7 @@ public class RankPlayerDAO {
                 .params(
                         rankPlayer.getUuid().toString(),
                         rankPlayer.getRank(),
-                        rankPlayer.getLastRankUp()
+                        rankPlayer.getTimeInMillisSinceLastRankUp()
                 ).run();
     }
 
@@ -49,7 +49,7 @@ public class RankPlayerDAO {
         query
                 .update("UPDATE players SET lastRankUp = ? WHERE player_uuid = ?")
                 .params(
-                        rankPlayer.getLastRankUp(),
+                        rankPlayer.getTimeInMillisSinceLastRankUp(),
                         rankPlayer.getUuid().toString()
                 ).run();
 

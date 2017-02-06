@@ -44,14 +44,17 @@ public class RankPlayerController {
             throw new RankException("Player doesn't have enough money");
         }
 
-        if (rankPlayer.getLastRankUp() + MILLISECONDS_IN_DAY < System.currentTimeMillis()) {
+        if (rankPlayer.getTimeInMillisSinceLastRankUp() + MILLISECONDS_IN_DAY > System.currentTimeMillis()) {
+            System.out.println(rankPlayer.getTimeInMillisSinceLastRankUp());
+            System.out.println(MILLISECONDS_IN_DAY);
+            System.out.println(System.currentTimeMillis());
             throw new RankException("Player can't rank up more than once per day");
         }
 
         economy.charge(player, nextRank.getCost());
 
         rankPlayer.setRank(nextRank.getId());
-        rankPlayer.setLastRankUp(System.currentTimeMillis());
+        rankPlayer.setTimeInMillisSinceLastRankUp(System.currentTimeMillis());
 
         permission.givePermission(player, nextRank.getPermission());
 

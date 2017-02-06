@@ -6,12 +6,12 @@ public class RankPlayer {
 
     private final UUID uuid;
     private int rank;
-    private long lastRankUp;
+    private long timeInMillisSinceLastRankUp;
 
-    public RankPlayer(UUID uuid, int rank, long lastRankUp) {
+    public RankPlayer(UUID uuid, int rank, long timeInMillisSinceLastRankUp) {
         this.uuid = uuid;
         this.rank = rank;
-        this.lastRankUp = lastRankUp;
+        this.timeInMillisSinceLastRankUp = timeInMillisSinceLastRankUp;
     }
 
     public UUID getUuid() {
@@ -26,12 +26,12 @@ public class RankPlayer {
         this.rank = rank;
     }
 
-    public long getLastRankUp() {
-        return lastRankUp;
+    public long getTimeInMillisSinceLastRankUp() {
+        return timeInMillisSinceLastRankUp;
     }
 
-    public void setLastRankUp(long lastRankUp) {
-        this.lastRankUp = lastRankUp;
+    public void setTimeInMillisSinceLastRankUp(long timeInMillisSinceLastRankUp) {
+        this.timeInMillisSinceLastRankUp = timeInMillisSinceLastRankUp;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class RankPlayer {
         return "RankPlayer{" +
                 "uuid=" + uuid +
                 ", rank=" + rank +
-                ", lastRankUp=" + lastRankUp +
+                ", timeInMillisSinceLastRankUp=" + timeInMillisSinceLastRankUp +
                 '}';
     }
 }
