@@ -25,9 +25,9 @@ public class RankNext extends AbstractRankCommand {
         int rankId = rankPlayers.getPlayer(player.getUniqueId()).getRank() + 1;
         Rank rank = ranks.getRank(rankId);
 
-        sender.sendMessage(String.valueOf(rank.getId()));
-        sender.sendMessage(rank.getDescription());
-        sender.sendMessage(String.valueOf(rank.getCost()));
+        sender.sendMessage(parser.colorString(false, "info.header", String.valueOf(rank.getId())));
+        sender.sendMessage(parser.colorString(false, "info.cost", String.valueOf(rank.getCost())));
+        sender.sendMessage(parser.colorString(false, "info.description", rank.getDescription()));
     }
 
 }

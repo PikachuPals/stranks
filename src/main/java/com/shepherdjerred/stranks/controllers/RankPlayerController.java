@@ -3,11 +3,13 @@ package com.shepherdjerred.stranks.controllers;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
 import com.shepherdjerred.stranks.economy.Economy;
 import com.shepherdjerred.stranks.exceptions.RankException;
+import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
 import com.shepherdjerred.stranks.permissions.Permission;
+import com.shepherdjerred.stranks.util.TimeToString;
 import org.bukkit.entity.Player;
 
 import java.util.concurrent.TimeUnit;
@@ -21,8 +23,10 @@ public class RankPlayerController {
     private Economy economy;
     private RankPlayerDAO rankPlayerDAO;
     private Permission permission;
+    private Parser parser;
 
-    public RankPlayerController(Ranks ranks, RankPlayers rankPlayers, Economy economy, RankPlayerDAO rankPlayerDAO, Permission permission) {
+    public RankPlayerController(Parser parser, Ranks ranks, RankPlayers rankPlayers, Economy economy, RankPlayerDAO rankPlayerDAO, Permission permission) {
+        this.parser = parser;
         this.ranks = ranks;
         this.rankPlayers = rankPlayers;
         this.economy = economy;
@@ -37,15 +41,18 @@ public class RankPlayerController {
         Rank nextRank = ranks.getRank(currentRank.getId() + 1);
 
         if (nextRank == null) {
-            throw new RankException("No rank exists after the players current rank");
+            throw new RankException("No rank exists after the current rank",
+                    parser.colorString(true, "buy.atLastRank"));
         }
 
         if (!economy.hasEnough(player, nextRank.getCost())) {
-            throw new RankException("Player doesn't have enough money");
+            throw new RankException("Not enough money",
+                    parser.colorString(true, "buy.notEnoughMoney", nextRank.getCost()));
         }
 
         if (rankPlayer.getTimeInMillisSinceLastRankUp() + MILLISECONDS_IN_DAY > System.currentTimeMillis()) {
-            throw new RankException("Player can't rank up more than once per day");
+            throw new RankException("Can't rank up more than once per day",
+                    parser.colorString(true, "buy.tooSoonToRankUp", TimeToString.convertLong(rankPlayer.getTimeInMillisSinceLastRankUp())));
         }
 
         economy.charge(player, nextRank.getCost());

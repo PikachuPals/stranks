@@ -10,7 +10,7 @@ public class RankList extends AbstractRankCommand {
         super(register, new CommandInfo(
                 "list",
                 "stRanks.list",
-                "Shows a list of all ranks on the server",
+                "Shows a list of all available ranks",
                 "/rank list",
                 0,
                 true
@@ -19,7 +19,8 @@ public class RankList extends AbstractRankCommand {
 
     @Override
     public void execute(SpigotCommandSource sender, String[] strings) {
-        ranks.getRanksAsList().forEach(rank -> sender.sendMessage(rank.getId() + ": " + rank.getDescription()));
+        sender.sendMessage(parser.colorString(false, "list.header"));
+        ranks.getRanksAsList().forEach(rank -> sender.sendMessage(parser.colorString(false, "list.item", rank.getId(), rank.getDescription())));
     }
 
 }

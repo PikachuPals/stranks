@@ -24,7 +24,7 @@ public class RankBuy extends AbstractRankCommand {
             rankPlayerController.rankUpPlayer(sender.getPlayer());
         } catch (RankException e) {
             e.printStackTrace();
-            sender.sendMessage(e.getMessage());
+            sender.sendMessage(e.getPlayerMessage());
         }
     }
 }

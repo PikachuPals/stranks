@@ -16,7 +16,7 @@ public class RankExecutor extends AbstractCommand {
                 "rank",
                 "stRanks.rank",
                 "Main command for stRanks",
-                "/stranks <info, list, buy>",
+                "/stranks <buy, info, list, next>",
                 1,
                 false
         ));

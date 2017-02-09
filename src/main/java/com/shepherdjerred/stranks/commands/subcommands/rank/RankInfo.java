@@ -13,7 +13,7 @@ public class RankInfo extends AbstractRankCommand {
         super(register, new CommandInfo(
                 "info",
                 "stRanks.info",
-                "Shows detailed information about your current rank",
+                "Shows detailed information about a rank",
                 "/rank info [id]",
                 0,
                 false
@@ -29,7 +29,6 @@ public class RankInfo extends AbstractRankCommand {
             if (StringUtils.isNumeric(args[0])) {
                 rankId = Integer.valueOf(args[0]);
             } else {
-                // Invalid arg
                 return;
             }
         } else {
@@ -38,9 +37,9 @@ public class RankInfo extends AbstractRankCommand {
 
         Rank rank = ranks.getRank(rankId);
 
-        sender.sendMessage(String.valueOf(rank.getId()));
-        sender.sendMessage(rank.getDescription());
-        sender.sendMessage(String.valueOf(rank.getCost()));
+        sender.sendMessage(parser.colorString(false, "info.header", String.valueOf(rank.getId())));
+        sender.sendMessage(parser.colorString(false, "info.cost", String.valueOf(rank.getCost())));
+        sender.sendMessage(parser.colorString(false, "info.description", rank.getDescription()));
     }
 
 }
