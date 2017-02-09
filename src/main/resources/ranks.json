@@ -13,12 +13,92 @@
     "3": {
       "permission": "stRanks.rank.3",
       "cost": 1000,
-      "description": "Store and place horses, several spells"
+      "description": "Store and place horses, several combat and utility spells"
     },
     "4": {
       "permission": "stRanks.rank.4",
       "cost": 2000,
-      "description": "Create a town, buy and sell signs. Use the map changer and painting switcher"
+      "description": "Create a town, buy and sell signs. Use the map changer and painting switcher. Several ICs"
+    },
+    "5": {
+      "permission": "stRanks.rank.5",
+      "cost": 5000,
+      "description": "Rent shop plots at spawn, use the sign copier and editor, create elevators, various spells"
+    },
+    "6": {
+      "permission": "stRanks.rank.6",
+      "cost": 7500,
+      "description": "Start auctions, get glass and bookshelves back when broken, several ICs"
+    },
+    "7": {
+      "permission": "stRanks.rank.7",
+      "cost": 11000,
+      "description": "DeviceOn/Off signs, create special pistons and bridges. Two combat spells, two utility spells"
+    },
+    "8": {
+      "permission": "stRanks.rank.8",
+      "cost": 12000,
+      "description": ""
+    },
+    "9": {
+      "permission": "stRanks.rank.9",
+      "cost": 13500,
+      "description": ""
+    },
+    "10": {
+      "permission": "stRanks.rank.10",
+      "cost": 15000,
+      "description": ""
+    },
+    "11": {
+      "permission": "stRanks.rank.11",
+      "cost": 15000,
+      "description": ""
+    },
+    "12": {
+      "permission": "stRanks.rank.12",
+      "cost": 17500,
+      "description": ""
+    },
+    "13": {
+      "permission": "stRanks.rank.13",
+      "cost": 20000,
+      "description": ""
+    },
+    "14": {
+      "permission": "stRanks.rank.14",
+      "cost": 21000,
+      "description": ""
+    },
+    "15": {
+      "permission": "stRanks.rank.15",
+      "cost": 22500,
+      "description": ""
+    },
+    "16": {
+      "permission": "stRanks.rank.16",
+      "cost": 22500,
+      "description": ""
+    },
+    "17": {
+      "permission": "stRanks.rank.17",
+      "cost": 24000,
+      "description": ""
+    },
+    "18": {
+      "permission": "stRanks.rank.18",
+      "cost": 25000,
+      "description": ""
+    },
+    "19": {
+      "permission": "stRanks.rank.19",
+      "cost": 30000,
+      "description": ""
+    },
+    "20": {
+      "permission": "stRanks.rank.20",
+      "cost": 30000,
+      "description": ""
     }
   }
 }
