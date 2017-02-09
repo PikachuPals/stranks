@@ -52,7 +52,7 @@ public class Main extends RiotBase {
         setupPermissions();
 
         rankPlayerDAO = new RankPlayerDAO(fluentJdbc, rankPlayers);
-        rankPlayerController = new RankPlayerController(ranks, rankPlayers, economy, rankPlayerDAO, permission);
+        rankPlayerController = new RankPlayerController(parser, ranks, rankPlayers, economy, rankPlayerDAO, permission);
 
         // TODO Load from plugin dir
         parser = new Parser(ResourceBundle.getBundle("messages"));
