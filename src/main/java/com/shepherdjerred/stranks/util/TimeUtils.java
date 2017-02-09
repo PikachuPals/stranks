@@ -3,21 +3,23 @@ package com.shepherdjerred.stranks.util;
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
-public class TimeToString {
+public class TimeUtils {
 
-    public static String convertLong(Long timeInMillis) {
-
+    public static long calculateRemainingCooldown(long cooldownStart) {
         Calendar calendar = Calendar.getInstance();
         calendar.getTime();
-        long diffInMillis = timeInMillis - calendar.getTimeInMillis();
+        return cooldownStart - calendar.getTimeInMillis();
+    }
 
-        long hours = TimeUnit.HOURS.convert(diffInMillis, TimeUnit.MILLISECONDS);
-        diffInMillis -= TimeUnit.HOURS.toMillis(hours);
+    public static String convertTimeInMillisToReadableString(Long timeInMillis) {
 
-        long minutes = TimeUnit.MINUTES.convert(diffInMillis, TimeUnit.MILLISECONDS);
-        diffInMillis -= TimeUnit.MINUTES.toMillis(minutes);
+        long hours = TimeUnit.HOURS.convert(timeInMillis, TimeUnit.MILLISECONDS);
+        timeInMillis -= TimeUnit.HOURS.toMillis(hours);
 
-        long seconds = TimeUnit.SECONDS.convert(diffInMillis, TimeUnit.MILLISECONDS);
+        long minutes = TimeUnit.MINUTES.convert(timeInMillis, TimeUnit.MILLISECONDS);
+        timeInMillis -= TimeUnit.MINUTES.toMillis(minutes);
+
+        long seconds = TimeUnit.SECONDS.convert(timeInMillis, TimeUnit.MILLISECONDS);
 
         if (hours < 1 && minutes < 1 && seconds < 1)
             seconds = 1L;

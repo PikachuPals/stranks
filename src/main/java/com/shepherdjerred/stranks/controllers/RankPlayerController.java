@@ -9,7 +9,7 @@ import com.shepherdjerred.stranks.objects.RankPlayer;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
 import com.shepherdjerred.stranks.permissions.Permission;
-import com.shepherdjerred.stranks.util.TimeToString;
+import com.shepherdjerred.stranks.util.TimeUtils;
 import org.bukkit.entity.Player;
 
 import java.util.concurrent.TimeUnit;
@@ -52,7 +52,7 @@ public class RankPlayerController {
 
         if (rankPlayer.getTimeInMillisSinceLastRankUp() + MILLISECONDS_IN_DAY > System.currentTimeMillis()) {
             throw new RankException("Can't rank up more than once per day",
-                    parser.colorString(true, "buy.tooSoonToRankUp", TimeToString.convertLong(rankPlayer.getTimeInMillisSinceLastRankUp())));
+                    parser.colorString(true, "buy.tooSoonToRankUp", TimeUtils.convertTimeInMillisToReadableString(TimeUtils.calculateRemainingCooldown(rankPlayer.getTimeInMillisSinceLastRankUp()))));
         }
 
         economy.charge(player, nextRank.getCost());
