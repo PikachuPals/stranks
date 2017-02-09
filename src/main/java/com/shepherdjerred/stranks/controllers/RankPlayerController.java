@@ -62,8 +62,10 @@ public class RankPlayerController {
 
         permission.givePermission(player, nextRank.getPermission());
 
-        rankPlayerDAO.setRank(rankPlayer);
-        rankPlayerDAO.setLastRankUp(rankPlayer);
+        new Thread(() -> {
+            rankPlayerDAO.setRank(rankPlayer);
+            rankPlayerDAO.setLastRankUp(rankPlayer);
+        });
 
     }
 

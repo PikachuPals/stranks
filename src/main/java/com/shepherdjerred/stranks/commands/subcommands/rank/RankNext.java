@@ -26,7 +26,7 @@ public class RankNext extends AbstractRankCommand {
             sender.sendMessage("Your information hasn't finished loading, please wait a few seconds and try again");
             return;
         }
-        
+
         int rankId = rankPlayer.getRank() + 1;
         Rank rank = ranks.getRank(rankId);
 
