@@ -65,7 +65,7 @@ public class RankPlayerController {
         new Thread(() -> {
             rankPlayerDAO.setRank(rankPlayer);
             rankPlayerDAO.setLastRankUp(rankPlayer);
-        }).run();
+        }).start();
 
     }
 

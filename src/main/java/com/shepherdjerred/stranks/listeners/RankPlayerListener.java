@@ -37,10 +37,9 @@ public class RankPlayerListener implements Listener {
             if (rankPlayer == null) {
                 rankPlayer = new RankPlayer(playerUuid, 1, 0);
                 rankPlayerDAO.insert(rankPlayer);
-                rankPlayers.addPlayer(rankPlayer);
-            }
-        }).run();
-        
+                rankPlayers.addPlayer(rankPlayer);}
+        }).start();
+
     }
 
     @EventHandler
