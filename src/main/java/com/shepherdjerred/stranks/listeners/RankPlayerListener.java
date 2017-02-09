@@ -4,7 +4,6 @@ import com.shepherdjerred.riotbase.Server;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
-import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -41,9 +40,7 @@ public class RankPlayerListener implements Listener {
                 rankPlayers.addPlayer(rankPlayer);
             }
         }).run();
-
-        Bukkit.broadcastMessage(String.valueOf(rankPlayers.getPlayer(playerUuid).getRank()));
-
+        
     }
 
     @EventHandler
