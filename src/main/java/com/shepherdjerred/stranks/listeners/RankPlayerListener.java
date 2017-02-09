@@ -25,14 +25,22 @@ public class RankPlayerListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        // Check if player exists in DB
         UUID playerUuid = event.getPlayer().getUniqueId();
-        RankPlayer rankPlayer = rankPlayerDAO.load(playerUuid);
-        if (rankPlayer == null) {
-            rankPlayer = new RankPlayer(playerUuid, 1, 0);
-            rankPlayerDAO.insert(rankPlayer);
-        }
-        rankPlayers.addPlayer(rankPlayer);
+
+        // Create an unloaded RankPlayer
+        RankPlayer unloadedRankPlayer = new RankPlayer(playerUuid);
+        rankPlayers.addPlayer(unloadedRankPlayer);
+
+        // Load from database
+        new Thread(() -> {
+            RankPlayer rankPlayer = rankPlayerDAO.load(playerUuid);
+            if (rankPlayer == null) {
+                rankPlayer = new RankPlayer(playerUuid, 1, 0);
+                rankPlayerDAO.insert(rankPlayer);
+                rankPlayers.addPlayer(rankPlayer);
+            }
+        });
+
     }
 
     @EventHandler

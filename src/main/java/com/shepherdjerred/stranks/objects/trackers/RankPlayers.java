@@ -1,5 +1,6 @@
 package com.shepherdjerred.stranks.objects.trackers;
 
+import com.shepherdjerred.riotbase.commands.CommandSource;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 
 import java.util.HashMap;
@@ -27,6 +28,10 @@ public class RankPlayers {
 
     public void removePlayer(UUID rankPlayerUuid) {
         rankPlayers.remove(rankPlayerUuid);
+    }
+
+    public RankPlayer getPlayer(CommandSource commandSource) {
+        return rankPlayers.get(commandSource.getPlayer().getUniqueId());
     }
 
 

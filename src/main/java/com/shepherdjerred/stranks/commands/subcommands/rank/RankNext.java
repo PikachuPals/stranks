@@ -4,7 +4,7 @@ import com.shepherdjerred.riotbase.commands.CommandInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
 import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
 import com.shepherdjerred.stranks.objects.Rank;
-import org.bukkit.entity.Player;
+import com.shepherdjerred.stranks.objects.RankPlayer;
 
 public class RankNext extends AbstractRankCommand {
 
@@ -21,8 +21,13 @@ public class RankNext extends AbstractRankCommand {
 
     @Override
     public void execute(SpigotCommandSource sender, String[] strings) {
-        Player player = sender.getPlayer();
-        int rankId = rankPlayers.getPlayer(player.getUniqueId()).getRank() + 1;
+        RankPlayer rankPlayer = rankPlayers.getPlayer(sender);
+        if (!rankPlayer.hasBeenLoaded()) {
+            sender.sendMessage("Your information hasn't finished loading, please wait a few seconds and try again");
+            return;
+        }
+        
+        int rankId = rankPlayer.getRank() + 1;
         Rank rank = ranks.getRank(rankId);
 
         sender.sendMessage(parser.colorString(false, "info.header", String.valueOf(rank.getId())));

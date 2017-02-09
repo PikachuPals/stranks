@@ -7,11 +7,18 @@ public class RankPlayer {
     private final UUID uuid;
     private int rank;
     private long timeInMillisSinceLastRankUp;
+    private boolean hasBeenLoaded;
 
     public RankPlayer(UUID uuid, int rank, long timeInMillisSinceLastRankUp) {
         this.uuid = uuid;
         this.rank = rank;
         this.timeInMillisSinceLastRankUp = timeInMillisSinceLastRankUp;
+        hasBeenLoaded = true;
+    }
+
+    public RankPlayer(UUID uuid) {
+        this.uuid = uuid;
+        hasBeenLoaded = false;
     }
 
     public UUID getUuid() {
@@ -32,6 +39,10 @@ public class RankPlayer {
 
     public void setTimeInMillisSinceLastRankUp(long timeInMillisSinceLastRankUp) {
         this.timeInMillisSinceLastRankUp = timeInMillisSinceLastRankUp;
+    }
+
+    public boolean hasBeenLoaded() {
+        return hasBeenLoaded;
     }
 
     @Override
