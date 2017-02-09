@@ -4,6 +4,7 @@ import com.shepherdjerred.riotbase.commands.CommandInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
 import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
 import com.shepherdjerred.stranks.exceptions.RankException;
+import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 
 public class RankBuy extends AbstractRankCommand {
@@ -31,6 +32,9 @@ public class RankBuy extends AbstractRankCommand {
         } catch (RankException e) {
             e.printStackTrace();
             sender.sendMessage(e.getPlayerMessage());
+            return;
         }
+        Rank rank = ranks.getRank(rankPlayer.getRank());
+        sender.sendMessage(parser.colorString(true, "buy.success", rank.getId(), rank.getDescription()));
     }
 }

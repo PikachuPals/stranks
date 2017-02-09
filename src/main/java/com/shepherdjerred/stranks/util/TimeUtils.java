@@ -50,7 +50,7 @@ public class TimeUtils {
                 string = string.concat("s");
         }
 
-        return String.valueOf(string);
+        return string;
     }
 
 }
