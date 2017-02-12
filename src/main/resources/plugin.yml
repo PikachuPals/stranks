@@ -8,14 +8,6 @@ depend: [Vault]
 
 main: com.shepherdjerred.stranks.Main
 
-commands:
-    stranks:
-        description: Admin command for stRanks
-        aliases: [str]
-    rank:
-        description: Main command for stRanks
-        aliases: [r]
-
 permissions:
     stRanks.rank:
         description: Use /rank

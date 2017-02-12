@@ -1,16 +1,16 @@
 package com.shepherdjerred.stranks.commands.subcommands.rank;
 
-import com.shepherdjerred.riotbase.commands.CommandInfo;
+import com.shepherdjerred.riotbase.commands.NodeInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
-import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankNodeRegister;
 import com.shepherdjerred.stranks.exceptions.RankException;
 import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 
-public class RankBuy extends AbstractRankCommand {
+public class RankBuy extends AbstractRankNode {
 
-    public RankBuy(RankCommandRegister register) {
-        super(register, new CommandInfo(
+    public RankBuy(RankNodeRegister register) {
+        super(register, new NodeInfo(
                 "buy",
                 "stRanks.buy",
                 "Buy the next rank",

@@ -2,19 +2,19 @@ package com.shepherdjerred.stranks;
 
 import com.shepherdjerred.riotbase.RiotBase;
 import com.shepherdjerred.riotbase.SpigotServer;
+import com.shepherdjerred.riotbase.economy.VaultEconomy;
+import com.shepherdjerred.riotbase.permissions.VaultPermission;
 import com.shepherdjerred.stranks.commands.RankExecutor;
-import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankNodeRegister;
 import com.shepherdjerred.stranks.config.RankConfig;
 import com.shepherdjerred.stranks.config.RankConfigImpl;
 import com.shepherdjerred.stranks.config.RankLoader;
 import com.shepherdjerred.stranks.controllers.RankPlayerController;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
-import com.shepherdjerred.stranks.economy.VaultEconomy;
 import com.shepherdjerred.stranks.listeners.RankPlayerListener;
 import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
-import com.shepherdjerred.stranks.permissions.VaultPermission;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.bukkit.Bukkit;
@@ -108,9 +108,9 @@ public class Main extends RiotBase {
     }
 
     private void registerCommands() {
-        RankCommandRegister rcr = new RankCommandRegister(parser, ranks, rankPlayerController, rankPlayers);
-        rcr.addCommand(new RankExecutor(rcr));
-        rcr.register(this);
+        RankNodeRegister rnr = new RankNodeRegister(parser, ranks, rankPlayerController, rankPlayers);
+        rnr.addNode(new RankExecutor(rnr));
+        rnr.registerCommandsForBukkit(this);
     }
 
     private void registerListeners() {

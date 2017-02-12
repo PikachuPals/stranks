@@ -1,17 +1,17 @@
 package com.shepherdjerred.stranks.commands.subcommands.rank;
 
-import com.shepherdjerred.riotbase.commands.CommandInfo;
+import com.shepherdjerred.riotbase.commands.NodeInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
-import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankNodeRegister;
 import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.entity.Player;
 
-public class RankInfo extends AbstractRankCommand {
+public class RankInfo extends AbstractRankNode {
 
-    public RankInfo(RankCommandRegister register) {
-        super(register, new CommandInfo(
+    public RankInfo(RankNodeRegister register) {
+        super(register, new NodeInfo(
                 "info",
                 "stRanks.info",
                 "Shows detailed information about a rank",

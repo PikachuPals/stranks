@@ -1,15 +1,15 @@
 package com.shepherdjerred.stranks.commands.subcommands.rank;
 
-import com.shepherdjerred.riotbase.commands.CommandInfo;
+import com.shepherdjerred.riotbase.commands.NodeInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
-import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankNodeRegister;
 import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 
-public class RankNext extends AbstractRankCommand {
+public class RankNext extends AbstractRankNode {
 
-    public RankNext(RankCommandRegister register) {
-        super(register, new CommandInfo(
+    public RankNext(RankNodeRegister register) {
+        super(register, new NodeInfo(
                 "next",
                 "stRanks.next",
                 "Shows information about the next rank you can obtain",

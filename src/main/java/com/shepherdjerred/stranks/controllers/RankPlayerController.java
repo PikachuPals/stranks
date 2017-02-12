@@ -1,15 +1,15 @@
 package com.shepherdjerred.stranks.controllers;
 
+import com.shepherdjerred.riotbase.economy.Economy;
+import com.shepherdjerred.riotbase.permissions.Permission;
+import com.shepherdjerred.riotbase.util.TimeUtils;
 import com.shepherdjerred.stranks.database.RankPlayerDAO;
-import com.shepherdjerred.stranks.economy.Economy;
 import com.shepherdjerred.stranks.exceptions.RankException;
 import com.shepherdjerred.stranks.messages.Parser;
 import com.shepherdjerred.stranks.objects.Rank;
 import com.shepherdjerred.stranks.objects.RankPlayer;
 import com.shepherdjerred.stranks.objects.trackers.RankPlayers;
 import com.shepherdjerred.stranks.objects.trackers.Ranks;
-import com.shepherdjerred.stranks.permissions.Permission;
-import com.shepherdjerred.stranks.util.TimeUtils;
 import org.bukkit.entity.Player;
 
 import java.util.concurrent.TimeUnit;

@@ -1,13 +1,13 @@
 package com.shepherdjerred.stranks.commands.subcommands.rank;
 
-import com.shepherdjerred.riotbase.commands.CommandInfo;
+import com.shepherdjerred.riotbase.commands.NodeInfo;
 import com.shepherdjerred.riotbase.commands.SpigotCommandSource;
-import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankCommandRegister;
+import com.shepherdjerred.stranks.commands.subcommands.rank.registers.RankNodeRegister;
 
-public class RankList extends AbstractRankCommand {
+public class RankList extends AbstractRankNode {
 
-    public RankList(RankCommandRegister register) {
-        super(register, new CommandInfo(
+    public RankList(RankNodeRegister register) {
+        super(register, new NodeInfo(
                 "list",
                 "stRanks.list",
                 "Shows a list of all available ranks",
