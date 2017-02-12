@@ -14,7 +14,7 @@ public class VaultPermission implements Permission {
     }
 
     public void givePermission(Player player, String permission) {
-        this.permission.playerAdd(player, permission);
+        this.permission.playerAdd(null, player, permission);
     }
 
     public boolean setupPermissions() {
