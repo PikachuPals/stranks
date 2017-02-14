@@ -13,7 +13,7 @@ public class RankNext extends AbstractRankNode {
                 "next",
                 "stRanks.next",
                 "Shows information about the next rank you can obtain",
-                "/rank list",
+                "/rank next",
                 0,
                 true
         ));

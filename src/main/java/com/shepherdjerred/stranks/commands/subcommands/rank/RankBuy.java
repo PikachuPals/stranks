@@ -24,17 +24,16 @@ public class RankBuy extends AbstractRankNode {
     public void execute(SpigotCommandSource sender, String[] args) {
         RankPlayer rankPlayer = rankPlayers.getPlayer(sender);
         if (!rankPlayer.hasBeenLoaded()) {
-            sender.sendMessage("Your information hasn't finished loading, please wait a few seconds and try again");
+            sender.sendMessage("Your information hasn't finished loading yet, please wait a few seconds and try again");
             return;
         }
         try {
             rankPlayerController.rankUpPlayer(sender.getPlayer());
+            Rank rank = ranks.getRank(rankPlayer.getRank());
+            sender.sendMessage(parser.colorString(true, "buy.success", rank.getId(), rank.getDescription()));
         } catch (RankException e) {
             e.printStackTrace();
             sender.sendMessage(e.getPlayerMessage());
-            return;
         }
-        Rank rank = ranks.getRank(rankPlayer.getRank());
-        sender.sendMessage(parser.colorString(true, "buy.success", rank.getId(), rank.getDescription()));
     }
 }

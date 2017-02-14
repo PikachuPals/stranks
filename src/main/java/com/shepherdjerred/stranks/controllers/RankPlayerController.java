@@ -51,8 +51,17 @@ public class RankPlayerController {
         }
 
         if (rankPlayer.getTimeInMillisSinceLastRankUp() + MILLISECONDS_IN_DAY > System.currentTimeMillis()) {
+
+            long millisSinceLastRankUp = rankPlayer.getTimeInMillisSinceLastRankUp();
+            long remainingCooldown = TimeUtils.calculateRemainingCooldown(millisSinceLastRankUp);
+            String cooldownString = TimeUtils.convertTimeInMillisToReadableString(remainingCooldown);
+
+            System.out.println(millisSinceLastRankUp);
+            System.out.println(remainingCooldown);
+            System.out.println(cooldownString);
+
             throw new RankException("Can't rank up more than once per day",
-                    parser.colorString(true, "buy.tooSoonToRankUp", TimeUtils.convertTimeInMillisToReadableString(TimeUtils.calculateRemainingCooldown(rankPlayer.getTimeInMillisSinceLastRankUp()))));
+                    parser.colorString(true, "buy.tooSoonToRankUp", cooldownString));
         }
 
         economy.charge(player, nextRank.getCost());
