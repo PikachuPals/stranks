@@ -32,7 +32,6 @@ public class RankBuy extends AbstractRankNode {
             Rank rank = ranks.getRank(rankPlayer.getRank());
             sender.sendMessage(parser.colorString(true, "buy.success", rank.getId(), rank.getDescription()));
         } catch (RankException e) {
-            e.printStackTrace();
             sender.sendMessage(e.getPlayerMessage());
         }
     }
