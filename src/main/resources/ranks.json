@@ -3,17 +3,17 @@
     "1": {
       "permission": "stRanks.rank.1",
       "cost": 0,
-      "description": "The initial rank"
+      "description": "The initial rank; 10 LWC locks and 2 spells."
     },
     "2": {
       "permission": "stRanks.rank.2",
       "cost": 1000,
-      "description": "Use ammeters and light stones. Create hidden switch, light switches, and cooking pots. Several ICs"
+      "description": "Use ammeters and light stones. Create hidden switches, light switches, and cooking pots. Several ICs"
     },
     "3": {
       "permission": "stRanks.rank.3",
       "cost": 1000,
-      "description": "Store and place horses, several combat and utility spells"
+      "description": "Store and place horses. 2 Utility spells; bind and unbind. 2 combat spells; roar and combust."
     },
     "4": {
       "permission": "stRanks.rank.4",
@@ -38,67 +38,67 @@
     "8": {
       "permission": "stRanks.rank.8",
       "cost": 12000,
-      "description": ""
+      "description": "Buy a plot at spawn. Shop Ad in announcements, several ICs."
     },
     "9": {
       "permission": "stRanks.rank.9",
-      "cost": 13500,
-      "description": ""
+      "cost": 14000,
+      "description": "XP bottler and toggle deviceitem signs. Several spells."
     },
     "10": {
       "permission": "stRanks.rank.10",
       "cost": 15000,
-      "description": ""
+      "description": "30 LWC locks, create doors and gates. Several Ics and a Commoner title."
     },
     "11": {
       "permission": "stRanks.rank.11",
       "cost": 15000,
-      "description": ""
+      "description": "Shop teleport and several spells."
     },
     "12": {
       "permission": "stRanks.rank.12",
-      "cost": 17500,
-      "description": ""
+      "cost": 15500,
+      "description": "Multiple ICs."
     },
     "13": {
       "permission": "stRanks.rank.13",
-      "cost": 20000,
-      "description": ""
+      "cost": 18500,
+      "description": "Slot signs, 3 combat spells and a teleportation spell."
     },
     "14": {
       "permission": "stRanks.rank.14",
       "cost": 21000,
-      "description": ""
+      "description": "Multiple ICs"
     },
     "15": {
       "permission": "stRanks.rank.15",
       "cost": 22500,
-      "description": ""
+      "description": "Trade signs and multiple utility spells."
     },
     "16": {
       "permission": "stRanks.rank.16",
       "cost": 22500,
-      "description": ""
+      "description": "Resell spawn plots and clock ICs."
     },
     "17": {
       "permission": "stRanks.rank.17",
       "cost": 24000,
-      "description": ""
+      "description": "Several utility spells."
     },
     "18": {
       "permission": "stRanks.rank.18",
       "cost": 25000,
-      "description": ""
+      "description": "Spawn plot limit increased to 3. Multiplexer ICs."
     },
     "19": {
       "permission": "stRanks.rank.19",
       "cost": 30000,
-      "description": ""
+      "description": "Share signs and 4 more utility spells."
     },
     "20": {
       "permission": "stRanks.rank.20",
       "cost": 30000,
-      "description": ""
+      "description": "40 LWC locks and the Citizen Title. 3 more ICs."
     }
   }
 }
